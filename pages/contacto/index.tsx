@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import Image from "next/Image";
+import Image from "next/image";
 import { Navbar } from "../../components/navbar";
 import { ImageSlider } from "../../components/imageSlider";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
