@@ -3,10 +3,26 @@ export interface Hyperlink {
     link: string
 }
 
+interface ImageFormat {
+    url: string
+    ext: string
+    name: string
+    width: number
+    height: number
+}
+
 export interface Image {
     id: number
     name: string
     url: string
+    width: number
+    height: number
+    formats: {
+        large: ImageFormat
+        medium: ImageFormat
+        small: ImageFormat
+        thumbnail: ImageFormat
+    }
 }
 export interface Page {
     id: number
@@ -17,4 +33,8 @@ export interface Page {
     updated_at: Date
     slug: string
     Imagenes: Array<Image>
+}
+
+export interface SliderImage {
+    source: string
 }

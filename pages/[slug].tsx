@@ -1,21 +1,43 @@
+import { useState } from "react";
 import type { NextPage } from 'next'
-import { Navbar } from "../components/navbar";
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+import { Layout } from "../components/layout";
+import { GetStaticProps, GetStaticPaths } from 'next'
+import { PhotoGallery } from "../components/photoGallery";
+import { GallerySlider } from "../components/imageSlider/GallerySlider";
 import { API_PATHS, FIXED_LINKS } from "../constants";
-import { fetchAPI } from "../utils/api";
 import { Page } from "../Entities";
+import { fetchAPI } from "../utils/api";
+import { ImagesToSliderImages } from "../utils/utils";
+
+import pageStyles from "../styles/page.module.scss";
 
 const GenericPage: NextPage = (props: any) => {
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+    const toggleLightbox = (clickedImage: number): void => { setSelectedImageIndex(clickedImage); setIsOpen(!isOpen) }
+
     const { pages, slug } = props;
     const navLinks = FIXED_LINKS.concat(pages.map((p: any) => ({ text: p.Titulo, link: `/${p.slug}` })));
-    const currentPage = pages.filter((p: Page) => p.slug === slug);
+    const currentPage: Page = pages.find((p: Page) => p.slug === slug);
+
     return (
-        <div>
-            <Navbar links={navLinks} />
-            <main>
-                <h1>{slug}</h1>
+        <Layout links={navLinks} >
+            <main className={pageStyles["page__main"]}>
+                <section className={pageStyles["page__section-wrapper"]}>
+                    <header className={pageStyles["page__title-text"]}>{currentPage.Titulo}</header>
+                </section>
+                <section className={pageStyles["page__section-wrapper"]}>
+                    {isOpen ?
+                        <GallerySlider images={currentPage.Imagenes} onClose={toggleLightbox} selectedImage={selectedImageIndex} />
+                        :
+                        <PhotoGallery images={currentPage.Imagenes} onClickImage={toggleLightbox}
+                        />}
+
+                </section>
             </main>
-        </div>
+        </Layout>
     )
 };
 

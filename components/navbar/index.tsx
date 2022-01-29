@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from "next/link";
+import { Hyperlink } from "../../Entities";
 
 import styles from './Navbar.module.scss'
 
-interface Link {
-    text: string
-    link: string
-}
-
 interface NavbarProps {
-    links: Link[]
+    links: Hyperlink[]
 }
 
 export function Navbar({
@@ -20,7 +16,7 @@ export function Navbar({
     const [isMenuClosed, setMenuClosed] = useState(true);
 
     const router = useRouter();
-    const currentPath = router.pathname;
+    const currentPath = router.asPath;
     return (
         <nav className={styles["nav-container"]}>
             <div className={styles["nav-hamburguer-icon"]} onClick={() => setMenuClosed(!isMenuClosed)}>☰</div>

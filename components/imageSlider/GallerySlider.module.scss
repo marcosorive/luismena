@@ -1,0 +1,41 @@
+@use "../../styles/constants.module.scss";
+
+.gallery-wrapper {
+    z-index: constants.$zIndexGallery;
+}
+
+.close-button {
+    font-size: 3.5em;
+    margin-right: 1rem;
+    z-index: 101;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.slider {
+    position: absolute;
+    z-index: constants.$zIndexGallery;
+    overflow: hidden;
+}
+
+.image {
+    &--container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: black;
+        padding: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__horizontal {
+        max-height: 100%;
+        width: auto;
+    }
+    &__vertical {
+        max-width: 100%;
+        height: auto;
+    }
+}

@@ -2,22 +2,9 @@ import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import { useState, useEffect } from 'react';
 
-// const images = [
-//     {
-//         source: 'https://estudioluismena.com/wp-content/uploads/2020/10/LMR6897-scaled.jpg'
-//     },
-//     {
-//         source: 'https://estudioluismena.com/wp-content/uploads/2020/10/LMR_8144-AUMENT-scaled.jpg'
-//     },
-//     {
-//         source: 'https://estudioluismena.com/wp-content/uploads/2020/10/LMR4190-scaled.jpg'
-//     }
-// ];
-
 interface SliderProps {
     images: Array<any>
 }
-
 
 export const ImageSlider = ({ images }: SliderProps) => {
 

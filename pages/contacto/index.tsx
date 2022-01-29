@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import Image from "next/image";
-import { Navbar } from "../../components/navbar";
-import { ImageSlider } from "../../components/imageSlider";
+import { Layout } from "../../components/layout";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { API_PATHS, FIXED_LINKS } from "../../constants";
 import { fetchAPI } from "../../utils/api";
@@ -34,8 +33,7 @@ const Contacto: NextPage = (props: any) => {
     const navLinks = FIXED_LINKS.concat(pages.map((p: any) => ({ text: p.Titulo, link: `/${p.slug}` })));
 
     return (
-        <>
-            <Navbar links={navLinks} />
+        <Layout links={navLinks} >
             <main className={pageStyles["page__main"]}>
                 <section className={pageStyles["page__section-wrapper"]}>
                     <header className={pageStyles["page__title-text"]}>Contacto</header>
@@ -80,7 +78,7 @@ const Contacto: NextPage = (props: any) => {
                     </main>
                 </section>
             </main>
-        </>
+        </Layout>
     )
 }
 

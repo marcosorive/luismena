@@ -1,12 +1,14 @@
 /* General navbar classes  */
 
+@use "../../styles/constants.module.scss";
+
 .nav-container {
     border-bottom: 2px solid rgba($color: #000000, $alpha: 0.1);
     color: white;
     display: flex;
     justify-content: flex-end;
     position: relative;
-    z-index: 15;
+    z-index: constants.$zIndexNavbar;
 }
 
 .nav-hamburguer-icon {

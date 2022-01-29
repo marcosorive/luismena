@@ -1,21 +1,20 @@
 import type { NextPage } from 'next'
 import { Navbar } from "../components/navbar";
+import { Layout } from "../components/layout";
 import { ImageSlider } from "../components/imageSlider";
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { API_PATHS, FIXED_LINKS } from "../constants";
 import { fetchAPI } from "../utils/api";
-
-
+import { ImagesToSliderImages } from "../utils/utils";
 
 const Home: NextPage = (props: any) => {
   const { pages, homePage } = props;
   const navLinks = FIXED_LINKS.concat(pages.map((p: any) => ({ text: p.Titulo, link: `/${p.slug}` })));
-  const sliderImages = homePage.Imagenes.map((img: any) => ({ source: img.url }))
+  const sliderImages = ImagesToSliderImages(homePage.Imagenes);
   return (
-    <>
-      <Navbar links={navLinks} />
+    <Layout links={navLinks}>
       <ImageSlider images={sliderImages} />
-    </>
+    </Layout>
   )
 }
 
@@ -26,6 +25,5 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { pages, homePage }
   }
 }
-
 
 export default Home
