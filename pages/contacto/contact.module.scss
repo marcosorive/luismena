@@ -1,11 +1,11 @@
 .contact {
     &__information {
         &-wrapper {
-            margin: 0 2rem;
             padding: 1rem;
             display: flex;
             flex-direction: column;
             background-color: rgb(33, 34, 37);
+            width: 80%;
         }
         &-section {
             display: flex;

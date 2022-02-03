@@ -32,9 +32,9 @@ export function Navbar({
                     <div className={styles["overlay-menu-wrapper"]}>
                         <div className={styles["overlay-menu"]}>
                             {links.map((node) => {
-                                const linkClassName = node.link === currentPath ? 'overlay-menu-item active-link' : 'overlay-menu-item'
+                                const linkClassName = node.link === currentPath ? `${styles["overlay-menu-item"]} ${styles["overlay-active-link"]}` : `${styles["overlay-menu-item"]}`
                                 return (<Link key={node.text} href={node.link}>
-                                    <a onClick={() => setMenuClosed(!isMenuClosed)} className={styles[linkClassName]}>
+                                    <a onClick={() => setMenuClosed(!isMenuClosed)} className={linkClassName}>
                                         {node.text}
                                     </a>
                                 </Link>);

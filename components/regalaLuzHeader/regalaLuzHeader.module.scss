@@ -1,0 +1,128 @@
+$text-color: rgb(187, 187, 187);
+
+.regala-luz-wrapper {
+    margin: 0 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.regala-luz-container {
+    max-width: 90%;
+}
+
+.header {
+    &--container {
+        display: flex;
+        flex-direction: column;
+    }
+    &--left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &--right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 2em 0;
+    }
+    &--image {
+        max-width: 100%;
+    }
+    &--title {
+        font-size: 2em;
+        text-align: center;
+        font-weight: 600;
+        margin: 0 0.7em;
+        margin-bottom: 0.8em;
+    }
+    &--button {
+        margin-top: 2em;
+    }
+}
+
+.feature {
+    &--container {
+        display: flex;
+        flex-direction: column;
+    }
+    &--wrapper {
+        margin-bottom: 2em;
+        width: fit-content;
+    }
+    &--title {
+        font-size: 1.5em;
+        margin-bottom: 0;
+        color: $text-color;
+    }
+    &--divider {
+        width: 30%;
+        margin-top: 3px;
+        color: rgb(157, 161, 165);
+        text-align: left;
+        margin-left: 0;
+    }
+    &--description {
+        color: $text-color;
+    }
+}
+
+.price {
+    &--wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+    }
+    &--container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &--title {
+        font-size: 1.2em;
+    }
+    &--divider {
+        width: 20%;
+    }
+    &--quantity {
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .regala-luz-wrapper {
+        align-items: center;
+        justify-content: center;
+    }
+    .regala-luz-container {
+        max-width: 60%;
+    }
+    .header {
+        &--container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        &--image {
+            max-width: 25vw;
+        }
+    }
+    .feature {
+        &--container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        &--wrapper {
+            margin-right: 2em;
+            max-width: 33%;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import { Hyperlink } from "../Entities";
+import { RegalaLuzHeader } from "../components/regalaLuzHeader";
 
 export const API_URL = process.env.API_URL || 'localhost:1337';
 export const API_PATHS = {
@@ -15,3 +16,10 @@ export const FIXED_LINKS: Array<Hyperlink> = [
         link: '/contacto'
     }
 ];
+
+interface StringMap { [key: string]: JSX.Element; }
+
+
+export const pageToSpecialComponent: StringMap = {
+    'regala-luz': <RegalaLuzHeader />
+}

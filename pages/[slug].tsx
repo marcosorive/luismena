@@ -7,7 +7,7 @@ import { GallerySlider } from "../components/imageSlider/GallerySlider";
 import { API_PATHS, FIXED_LINKS } from "../constants";
 import { Page } from "../Entities";
 import { fetchAPI } from "../utils/api";
-import { ImagesToSliderImages } from "../utils/utils";
+import { specialComponenBuilder } from "../utils/utils";
 
 import pageStyles from "../styles/page.module.scss";
 
@@ -22,6 +22,8 @@ const GenericPage: NextPage = (props: any) => {
     const navLinks = FIXED_LINKS.concat(pages.map((p: any) => ({ text: p.Titulo, link: `/${p.slug}` })));
     const currentPage: Page = pages.find((p: Page) => p.slug === slug);
 
+    const specialComponent: JSX.Element = specialComponenBuilder(currentPage.slug);
+
     return (
         <Layout links={navLinks} >
             <main className={pageStyles["page__main"]}>
@@ -30,11 +32,16 @@ const GenericPage: NextPage = (props: any) => {
                 </section>
                 <section className={pageStyles["page__section-wrapper"]}>
                     {isOpen ?
-                        <GallerySlider images={currentPage.Imagenes} onClose={toggleLightbox} selectedImage={selectedImageIndex} />
+                        <section className={pageStyles["page__section-wrapper"]}>
+                            <GallerySlider images={currentPage.Imagenes} onClose={toggleLightbox} selectedImage={selectedImageIndex} />
+                        </section>
                         :
-                        <PhotoGallery images={currentPage.Imagenes} onClickImage={toggleLightbox}
-                        />}
-
+                        <section className={pageStyles["page__section-wrapper"]}>
+                            {specialComponent}
+                            <p className={pageStyles["page__description"]}>{currentPage.Descripcion}</p>
+                            <PhotoGallery images={currentPage.Imagenes} onClickImage={toggleLightbox} />
+                        </section>
+                    }
                 </section>
             </main>
         </Layout>
