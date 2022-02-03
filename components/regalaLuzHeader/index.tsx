@@ -38,7 +38,7 @@ export function RegalaLuzHeader() {
                 </div>
             </div>
             <div className={styles["feature--container"]}>
-                {features.map((f) => <Feature title={f.title} description={f.description} />)}
+                {features.map((f) => <Feature key={f.title} title={f.title} description={f.description} />)}
             </div>
             <hr className={styles["hr-60"]} />
             <div className={styles["price--wrapper"]}>
