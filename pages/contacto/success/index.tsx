@@ -1,12 +1,12 @@
 import type { NextPage } from 'next'
-import { Navbar } from "../../components/navbar";
+import { Navbar } from "../../../components/navbar";
 import { GetStaticProps } from 'next'
-import { API_PATHS, FIXED_LINKS } from "../../constants";
-import { fetchAPI } from "../../utils/api";
+import { API_PATHS, FIXED_LINKS } from "../../../constants";
+import { fetchAPI } from "../../../utils/api";
 
 
-import contactStyles from "./contact.module.scss";
-import pageStyles from "../../styles/page.module.scss";
+import contactStyles from "../contact.module.scss";
+import pageStyles from "../../../styles/page.module.scss";
 
 
 const ContactSuccess: NextPage = (props: any) => {
