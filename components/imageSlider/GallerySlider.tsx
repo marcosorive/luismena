@@ -15,7 +15,7 @@ export const GallerySlider = ({ images, onClose, selectedImage }: GallerySliderP
 
     const getImageContaier = (image: Image) => {
         const imageClassname = image.width >= image.height ? styles["image__horizontal"] : styles["image__vertical"]
-        return (<div className={styles["image--container"]}>
+        return (<div className={styles["image__container"]}>
             <ImageComponent image={image} className={imageClassname} />
         </div>)
     }

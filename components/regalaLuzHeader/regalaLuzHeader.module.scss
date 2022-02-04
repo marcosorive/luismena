@@ -12,84 +12,84 @@ $text-color: rgb(187, 187, 187);
 }
 
 .header {
-    &--container {
+    &__container {
         display: flex;
         flex-direction: column;
     }
-    &--left {
+    &__left {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    &--right {
+    &__right {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         margin: 2em 0;
     }
-    &--image {
+    &__image {
         max-width: 100%;
     }
-    &--title {
+    &__title {
         font-size: 2em;
         text-align: center;
         font-weight: 600;
         margin: 0 0.7em;
         margin-bottom: 0.8em;
     }
-    &--button {
+    &__button {
         margin-top: 2em;
     }
 }
 
 .feature {
-    &--container {
+    &__container {
         display: flex;
         flex-direction: column;
     }
-    &--wrapper {
+    &__wrapper {
         margin-bottom: 2em;
         width: fit-content;
     }
-    &--title {
+    &__title {
         font-size: 1.5em;
         margin-bottom: 0;
         color: $text-color;
     }
-    &--divider {
+    &__divider {
         width: 30%;
         margin-top: 3px;
         color: rgb(157, 161, 165);
         text-align: left;
         margin-left: 0;
     }
-    &--description {
+    &__description {
         color: $text-color;
     }
 }
 
 .price {
-    &--wrapper {
+    &__wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 2em;
     }
-    &--container {
+    &__container {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    &--title {
+    &__title {
         font-size: 1.2em;
     }
-    &--divider {
+    &__divider {
         width: 20%;
     }
-    &--quantity {
+    &__quantity {
         font-size: 1.2em;
     }
 }
@@ -103,24 +103,24 @@ $text-color: rgb(187, 187, 187);
         max-width: 60%;
     }
     .header {
-        &--container {
+        &__container {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
         }
-        &--image {
+        &__image {
             max-width: 25vw;
         }
     }
     .feature {
-        &--container {
+        &__container {
             flex-direction: row;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-evenly;
         }
-        &--wrapper {
+        &__wrapper {
             margin-right: 2em;
             max-width: 33%;
         }

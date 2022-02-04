@@ -37,4 +37,5 @@ export interface Page {
 
 export interface SliderImage {
     source: string
+    alt: string
 }

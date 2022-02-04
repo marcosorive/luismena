@@ -2,7 +2,7 @@ import { Image, SliderImage } from "../Entities";
 import { pageToSpecialComponent } from "../constants";
 
 export function imagesToSliderImages(images: Array<Image>): Array<SliderImage> {
-    return images.map((img: Image) => ({ source: img.url }));
+    return images.map((img: Image) => ({ source: img.url, alt: img.name }));
 }
 
 

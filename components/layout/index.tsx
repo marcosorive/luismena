@@ -18,6 +18,7 @@ export function Layout({ links, children }: LayoutProps) {
         <>
             <Head>
                 <meta charSet="UTF-8"></meta>
+                <meta lang="es" />
                 <title>{pageTitle}</title>
                 <meta name="description"></meta>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" ></meta>
