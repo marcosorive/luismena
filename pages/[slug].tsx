@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, MouseEventHandler } from "react";
 import type { NextPage } from 'next'
 import { Layout } from "../components/layout";
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { PhotoGallery } from "../components/photoGallery";
-import { GallerySlider } from "../components/imageSlider/GallerySlider";
+import { ImageGallery } from "../components/photoGallery";
+import FsLightbox from 'fslightbox-react';
 import { API_PATHS, FIXED_LINKS } from "../constants";
 import { Page } from "../Entities";
 import { fetchAPI } from "../utils/api";
@@ -14,15 +14,21 @@ import pageStyles from "../styles/page.module.scss";
 const GenericPage: NextPage = (props: any) => {
 
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+    const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
 
-    const toggleLightbox = (clickedImage: number): void => { setSelectedImageIndex(clickedImage); setIsOpen(!isOpen) }
+    const toggleLightbox = (_setSelectedImageIndex: number): void => {
+        setSelectedImageIndex(_setSelectedImageIndex);
+        console.log(`Should open ${_setSelectedImageIndex}`)
+        setIsOpen(!isOpen)
+    }
 
     const { pages, slug } = props;
     const navLinks = FIXED_LINKS.concat(pages.map((p: any) => ({ text: p.Titulo, link: `/${p.slug}` })));
     const currentPage: Page = pages.find((p: Page) => p.slug === slug);
-
+    const currentPageImagesSources: Array<String> = currentPage.Imagenes.map(img => img.url);
+    const currentPageImagesAlts: Array<Object> = currentPage.Imagenes.map(img => ({ alt: img.name }));
     const specialComponent: JSX.Element = specialComponenBuilder(currentPage.slug);
+
 
     return (
         <Layout links={navLinks} >
@@ -31,17 +37,20 @@ const GenericPage: NextPage = (props: any) => {
                     <header className={pageStyles["page__title-text"]}>{currentPage.Titulo}</header>
                 </section>
                 <section className={pageStyles["page__section-wrapper"]}>
-                    {isOpen ?
-                        <section className={pageStyles["page__section-wrapper"]}>
-                            <GallerySlider images={currentPage.Imagenes} onClose={toggleLightbox} selectedImage={selectedImageIndex} />
-                        </section>
-                        :
-                        <section className={pageStyles["page__section-wrapper"]}>
-                            {specialComponent}
-                            <p className={pageStyles["page__description"]}>{currentPage.Descripcion}</p>
-                            <PhotoGallery images={currentPage.Imagenes} onClickImage={toggleLightbox} />
-                        </section>
-                    }
+
+                    <FsLightbox
+                        toggler={isOpen}
+                        sources={currentPageImagesSources}
+                        customAttributes={currentPageImagesAlts}
+                        sourceIndex={selectedImageIndex}
+                    />
+
+                    <section className={pageStyles["page__section-wrapper"]}>
+                        {specialComponent}
+                        <p className={pageStyles["page__description"]}>{currentPage.Descripcion}</p>
+                        <ImageGallery images={currentPage.Imagenes} onClickImage={toggleLightbox} />
+                    </section>
+
                 </section>
             </main>
         </Layout>

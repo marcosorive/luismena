@@ -8,7 +8,7 @@ interface ImageProps {
 export function ImageComponent({ image, className }: ImageProps) {
     const imageClassName = className || styles["image--image"];
     return (
-        <img alt="testing"
+        <img alt={image.name}
             className={imageClassName}
             src={image.formats.small.url}
         />

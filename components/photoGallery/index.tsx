@@ -4,12 +4,12 @@ import { ImageComponent } from "./image";
 
 import styles from "./photogallery.module.scss";
 
-interface PhotoGalleryProps {
+interface ImageGalleryProps {
     images: Array<Image>,
     onClickImage: any
 }
 
-export function PhotoGallery({ images, onClickImage }: PhotoGalleryProps) {
+export function ImageGallery({ images, onClickImage }: ImageGalleryProps) {
 
     const galleryImages = images.map((image: Image, index) => {
         return (<div key={image.id} className={styles["image--wrapper"]} onClick={() => onClickImage(index)}>
