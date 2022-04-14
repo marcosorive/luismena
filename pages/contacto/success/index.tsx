@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
-import { Navbar } from "../../../components/navbar";
 import { GetStaticProps } from 'next'
-import { API_PATHS, FIXED_LINKS } from "../../../constants";
+import { API_PATHS } from "../../../constants";
 import { fetchAPI } from "../../../utils/api";
 
 

@@ -1,10 +1,9 @@
-import { useState, MouseEventHandler } from "react";
+import { useState } from "react";
 import type { NextPage } from 'next'
-import { Layout } from "../components/layout";
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { ImageGallery } from "../components/photoGallery";
 import FsLightbox from 'fslightbox-react';
-import { API_PATHS, FIXED_LINKS } from "../constants";
+import { API_PATHS } from "../constants";
 import { Page } from "../Entities";
 import { fetchAPI } from "../utils/api";
 import { specialComponenBuilder } from "../utils/utils";

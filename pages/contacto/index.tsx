@@ -1,8 +1,7 @@
 import type { NextPage } from 'next'
 import Image from "next/image";
-import { Layout } from "../../components/layout";
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
-import { API_PATHS, FIXED_LINKS } from "../../constants";
+import { GetStaticProps } from 'next'
+import { API_PATHS } from "../../constants";
 import { fetchAPI } from "../../utils/api";
 import EmailImage from "../../resources/contact_icon1.png";
 import PhoneImage from "../../resources/contact_icon2.png";

@@ -13,7 +13,7 @@ export function Layout({ links, children }: LayoutProps) {
     const router = useRouter();
     const currentPath = router.asPath;
     const currentPage = links.find(e => e.link === currentPath)
-    const pageTitle = `${currentPage?.text} - Estudio Luis Mena`
+    const pageTitle = currentPage ? `${currentPage?.text} - Estudio Luis Mena` : " Estudio Luis Mena"
     return (
         <>
             <Head>
