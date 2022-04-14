@@ -18,12 +18,10 @@ const GenericPage: NextPage = (props: any) => {
 
     const toggleLightbox = (_setSelectedImageIndex: number): void => {
         setSelectedImageIndex(_setSelectedImageIndex);
-        console.log(`Should open ${_setSelectedImageIndex}`)
         setIsOpen(!isOpen)
     }
 
     const { pages, slug } = props;
-    const navLinks = FIXED_LINKS.concat(pages.map((p: any) => ({ text: p.Titulo, link: `/${p.slug}` })));
     const currentPage: Page = pages.find((p: Page) => p.slug === slug);
     const currentPageImagesSources: Array<String> = currentPage.Imagenes.map(img => img.url);
     const currentPageImagesAlts: Array<Object> = currentPage.Imagenes.map(img => ({ alt: img.name }));
@@ -31,29 +29,27 @@ const GenericPage: NextPage = (props: any) => {
 
 
     return (
-        <Layout links={navLinks} >
-            <main className={pageStyles["page__main"]}>
+        <main className={pageStyles["page__main"]}>
+            <section className={pageStyles["page__section-wrapper"]}>
+                <header className={pageStyles["page__title-text"]}>{currentPage.Titulo}</header>
+            </section>
+            <section className={pageStyles["page__section-wrapper"]}>
+
+                <FsLightbox
+                    toggler={isOpen}
+                    sources={currentPageImagesSources}
+                    customAttributes={currentPageImagesAlts}
+                    sourceIndex={selectedImageIndex}
+                />
+
                 <section className={pageStyles["page__section-wrapper"]}>
-                    <header className={pageStyles["page__title-text"]}>{currentPage.Titulo}</header>
+                    {specialComponent}
+                    <p className={pageStyles["page__description"]}>{currentPage.Descripcion}</p>
+                    <ImageGallery images={currentPage.Imagenes} onClickImage={toggleLightbox} />
                 </section>
-                <section className={pageStyles["page__section-wrapper"]}>
 
-                    <FsLightbox
-                        toggler={isOpen}
-                        sources={currentPageImagesSources}
-                        customAttributes={currentPageImagesAlts}
-                        sourceIndex={selectedImageIndex}
-                    />
-
-                    <section className={pageStyles["page__section-wrapper"]}>
-                        {specialComponent}
-                        <p className={pageStyles["page__description"]}>{currentPage.Descripcion}</p>
-                        <ImageGallery images={currentPage.Imagenes} onClickImage={toggleLightbox} />
-                    </section>
-
-                </section>
-            </main>
-        </Layout>
+            </section>
+        </main>
     )
 };
 

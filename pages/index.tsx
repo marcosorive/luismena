@@ -9,13 +9,8 @@ import { imagesToSliderImages } from "../utils/utils";
 
 const Home: NextPage = (props: any) => {
   const { pages, homePage } = props;
-  const navLinks = FIXED_LINKS.concat(pages.map((p: any) => ({ text: p.Titulo, link: `/${p.slug}` })));
   const sliderImages = imagesToSliderImages(homePage.Imagenes);
-  return (
-    <Layout links={navLinks}>
-      <ImageSlider images={sliderImages} />
-    </Layout>
-  )
+  return <ImageSlider images={sliderImages} />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
