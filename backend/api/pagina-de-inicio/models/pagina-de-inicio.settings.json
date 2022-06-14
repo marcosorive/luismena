@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_de_inicios",
+  "info": {
+    "name": "Pagina de Inicio"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Imagenes": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}

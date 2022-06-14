@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paginas",
+  "info": {
+    "name": "Paginas",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "required": true
+    },
+    "Descripcion": {
+      "type": "text"
+    },
+    "Imagenes": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Titulo",
+      "required": true
+    }
+  }
+}
