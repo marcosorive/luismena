@@ -1,13 +1,18 @@
 {
-  "name": "luismena-cms",
+  "name": "luismena-backend",
   "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application",
+  "version": "1.0.0",
+  "description": "Backend for estudioluismena.com. Made with Strapi.",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
+  },
+  "author": {
+    "name": "Marcos Orive",
+    "email": "marcos@orive.me",
+    "url": "http://marcos.orive.me"
   },
   "devDependencies": {},
   "dependencies": {
@@ -26,9 +31,6 @@
     "strapi-plugin-users-permissions": "3.6.8",
     "strapi-provider-upload-cloudinary": "^3.6.8",
     "strapi-utils": "3.6.8"
-  },
-  "author": {
-    "name": "A Strapi developer"
   },
   "strapi": {
     "uuid": "5e71232d-e613-4d4c-aa34-741f5129fa84"

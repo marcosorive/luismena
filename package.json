@@ -8,7 +8,11 @@
     "type": "git",
     "url": "git+https://github.com/marcosorive/luismena.git"
   },
-  "author": "Marcos Orive Izarra",
+  "author": {
+    "name": "Marcos Orive",
+    "email": "marcos@orive.me",
+    "url": "http://marcos.orive.me"
+  },
   "license": "SEE LICENSE IN LICENSE.MD",
   "bugs": {
     "url": "https://github.com/marcosorive/luismena/issues"

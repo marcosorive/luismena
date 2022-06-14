@@ -1,11 +1,16 @@
 {
-  "name": "luismena",
+  "name": "luismena-frontend",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "author": {
+    "name": "Marcos Orive",
+    "email": "marcos@orive.me",
+    "url": "http://marcos.orive.me"
   },
   "dependencies": {
     "fslightbox-react": "^1.6.2-2",
