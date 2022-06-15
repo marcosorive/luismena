@@ -4,11 +4,17 @@ import { GetStaticProps } from 'next'
 import { API_PATHS } from "../constants";
 import { fetchAPI } from "../utils/api";
 import { imagesToSliderImages } from "../utils/utils";
-
+import { InstagramLogo } from "../resources/instagramLogo";
 const Home: NextPage = (props: any) => {
   const { homePage } = props;
   const sliderImages = imagesToSliderImages(homePage.Imagenes);
-  return <ImageSlider images={sliderImages} />
+  return <div>
+    <ImageSlider images={sliderImages} />
+    <footer>
+      <InstagramLogo></InstagramLogo>
+      <InstagramLogo></InstagramLogo>
+    </footer>
+  </div>
 }
 
 export const getStaticProps: GetStaticProps = async () => {

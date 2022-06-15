@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { NextPage } from 'next'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { ImageGallery } from "../components/ImageComponent";
+import { ImageGallery } from "../components/image";
 import FsLightbox from 'fslightbox-react';
 import { API_PATHS } from "../constants";
 import { Page } from "../Entities";
