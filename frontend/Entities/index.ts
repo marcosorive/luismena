@@ -18,9 +18,6 @@ export interface Image {
     width: number
     height: number
     formats: {
-        large: ImageFormat
-        medium: ImageFormat
-        small: ImageFormat
         thumbnail: ImageFormat
     }
 }

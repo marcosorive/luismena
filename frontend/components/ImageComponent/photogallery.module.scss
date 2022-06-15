@@ -34,7 +34,13 @@
         overflow: hidden;
     }
     &--image {
+        width: 100%;
+        height: auto;
         flex-shrink: 0;
         cursor: pointer;
+        &__vertical{
+            height: 100%;
+            width: auto;
+        }
     }
 }
