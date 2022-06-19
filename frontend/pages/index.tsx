@@ -4,15 +4,19 @@ import { GetStaticProps } from 'next'
 import { API_PATHS } from "../constants";
 import { fetchAPI } from "../utils/api";
 import { imagesToSliderImages } from "../utils/utils";
-import { InstagramLogo } from "../resources/instagramLogo";
+import { InstagramLogo, FacebookLogo } from "../resources";
+
 const Home: NextPage = (props: any) => {
   const { homePage } = props;
   const sliderImages = imagesToSliderImages(homePage.Imagenes);
   return <div>
     <ImageSlider images={sliderImages} />
     <footer>
-      <InstagramLogo></InstagramLogo>
-      <InstagramLogo></InstagramLogo>
+      <section>© 2019 — LUIS MENA REGUEIRA</section>
+      <section className='footer__logos'>
+        <InstagramLogo />
+        <FacebookLogo />
+      </section>
     </footer>
   </div>
 }
