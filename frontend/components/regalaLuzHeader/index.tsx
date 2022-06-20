@@ -34,7 +34,7 @@ export function RegalaLuzHeader() {
                     <Button text="Reserva" />
                 </div>
                 <div className={styles["header__right"]}>
-                    <img className={styles["header__image"]} src="https://estudioluismena.com/wp-content/uploads/2020/10/LMR_6112-gafas-scaled-800x800.jpg" />
+                    <img className={styles["header__image"]} src="https://res.cloudinary.com/morive/image/upload/v1655240797/luismena/LMR_6112_gafas_scaled_a37d2fabf8.jpg" />
                 </div>
             </div>
             <div className={styles["feature__container"]}>
