@@ -26,7 +26,6 @@ const GenericPage: NextPage = (props: any) => {
     const currentPageImagesAlts: Array<Object> = currentPage.Imagenes.map(img => ({ alt: img.name }));
     const specialComponent: JSX.Element = specialComponenBuilder(currentPage.slug);
 
-
     return (
         <main className={pageStyles["page__main"]}>
             <section className={pageStyles["page__section-wrapper"]}>

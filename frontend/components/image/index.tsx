@@ -13,7 +13,7 @@ export function ImageGallery({ images, onClickImage }: ImageGalleryProps) {
 
     const galleryImages = images.map((image: Image, index) => {
         return (<div key={image.id} className={styles["image--wrapper"]} onClick={() => onClickImage(index)}>
-            <ImageComponent image={image} />
+            <ImageComponent image={image} size='small' />
         </div>)
     });
 
