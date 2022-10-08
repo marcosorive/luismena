@@ -8,7 +8,7 @@ import contactStyles from "../contact.module.scss";
 import pageStyles from "../../../styles/page.module.scss";
 
 
-const ContactSuccess: NextPage = (props: any) => {
+const ContactSuccess: NextPage = () => {
 
     return (
         <main className={pageStyles["page__main"]}>
@@ -20,10 +20,6 @@ const ContactSuccess: NextPage = (props: any) => {
             </section>
         </main>
     )
-}
-
-export const getServerSideProps: GetServerSideProps = async () => {
-    return { props: {} };
 }
 
 export default ContactSuccess
