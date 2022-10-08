@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { GetStaticProps } from 'next'
+import { GetStaticProps, GetServerSideProps } from 'next'
 import { API_PATHS } from "../../../constants";
 import { fetchAPI } from "../../../utils/api";
 
@@ -22,18 +22,8 @@ const ContactSuccess: NextPage = (props: any) => {
     )
 }
 
-export function getServerSideProps() {
-    return {
-    };
+export const getServerSideProps: GetServerSideProps = async () => {
+    return { props: {} };
 }
-
-
-export const getStaticProps: GetStaticProps = async () => {
-    const pages = await fetchAPI(API_PATHS.pages);
-    return {
-        props: { pages }
-    }
-}
-
 
 export default ContactSuccess
