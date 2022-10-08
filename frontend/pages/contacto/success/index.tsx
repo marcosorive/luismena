@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { GetStaticProps, GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { API_PATHS } from "../../../constants";
 import { fetchAPI } from "../../../utils/api";
 
@@ -16,7 +16,7 @@ const ContactSuccess: NextPage = (props: any) => {
                 <header className={pageStyles["page__title-text"]}>Contacto</header>
             </section>
             <section>
-                <p className={contactStyles["page__title-text--small"]}>Muchas gracias por tu mensaje, ha sido enviado correctamente. Me pondre en contacto contigo lo antes posible.</p>
+                <p className={pageStyles["page__title-text--small"]}>Muchas gracias por tu mensaje, ha sido enviado correctamente. Me pondre en contacto contigo lo antes posible.</p>
             </section>
         </main>
     )
