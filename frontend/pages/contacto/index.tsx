@@ -28,6 +28,8 @@ const ConctactSection = (props: ContactSectionProps) => {
 
 const Contacto: NextPage = (props: any) => {
 
+    const domain = typeof window !== "undefined" ? window.location.href : "localhost:3000";
+
     return (
         <main className={pageStyles["page__main"]}>
             <section className={pageStyles["page__section-wrapper"]}>
@@ -49,7 +51,7 @@ const Contacto: NextPage = (props: any) => {
             <section className={pageStyles["page__section-wrapper--margin"]}>
                 <header className={pageStyles["page__title-text--small"]}>Formulario de contacto</header>
                 <main className={contactStyles["contact__form-main"]}>
-                    <form className={contactStyles["contact__form-wrapper"]} action="/contacto/success" name="contact" method="POST" data-netlify="true">
+                    <form className={contactStyles["contact__form-wrapper"]} name="contact" action="https://api.web3forms.com/submit" method="POST">
                         <div className={contactStyles["contact__form-name-fields"]}>
                             <div className={contactStyles["contact__form-group"]}>
                                 <label className={contactStyles["contact__form-label"]} htmlFor="nombre">Nombre *</label>
@@ -68,6 +70,11 @@ const Contacto: NextPage = (props: any) => {
                             <label className={contactStyles["contact__form-label"]} htmlFor='mensaje'>Mensaje *</label>
                             <textarea className={contactStyles["contact__form-input"]} name="mensaje" id="mensaje" rows={7} cols={30} required></textarea>
                         </div>
+                        <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_FORM_API_KEY} />
+                        <input type="hidden" name="subject" value="Nuevo contacto a traves de estudioluismena.com" />
+                        <input type="checkbox" name="botcheck" id="" style={{ display: 'none' }} />
+                        <input type="hidden" name="redirect" value={`${domain}/success`} />
+                        <input type="hidden" name="from_name" value="estudioluismena.com" />
                         <button className={contactStyles["contact__form-submit"]} type="submit">Enviar mensaje</button>
                     </form>
                 </main>

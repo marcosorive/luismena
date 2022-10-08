@@ -9,7 +9,7 @@
     justify-content: flex-end;
     position: relative;
     z-index: constants.$zIndexNavbar;
-    background-color:  rgba($color: #000000, $alpha: 0.2)
+    background-color: rgba($color: #000000, $alpha: 0.2)
 }
 
 .nav-hamburguer-icon {
@@ -17,6 +17,7 @@
     padding: 1.5rem;
     display: block;
 }
+
 .nav-hamburguer-icon:hover {
     color: grey;
 }
@@ -27,39 +28,41 @@
 
 .active-link {
     border-bottom: 1px solid white;
-    transition: all 3s linear;
+    transition: border-bottom 3s linear;
 }
 
 @media screen and (min-width: 1200px) {
     .nav-container {
         justify-content: flex-start;
     }
+
     .nav-links {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        transition: all 3s linear;
+        transition: border-bottom 3s linear;
     }
 
-    .nav-links > a {
+    .nav-links>a {
         color: white;
         text-decoration: none;
         padding: 1.5rem;
-        transition: all 3s linear;
+        transition: border-bottom 3s linear;
     }
 
-    .nav-links > a:hover {
+    .nav-links>a:hover {
         border-bottom: 1px solid white;
         transition: border-bottom 3s linear;
     }
 
-    .nav-links > a:first-child {
+    .nav-links>a:first-child {
         margin-left: 0;
     }
 
     .nav-hamburguer-icon {
         display: none;
     }
+
     .overlay-container-hidden {
         display: none;
     }

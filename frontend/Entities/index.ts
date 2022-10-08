@@ -19,6 +19,9 @@ export interface Image {
     height: number
     formats: {
         thumbnail: ImageFormat
+        large: ImageFormat
+        medium: ImageFormat
+        small: ImageFormat
     }
 }
 export interface Page {
