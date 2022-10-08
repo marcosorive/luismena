@@ -73,7 +73,7 @@ const Contacto: NextPage = (props: any) => {
                         <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_FORM_API_KEY} />
                         <input type="hidden" name="subject" value="Nuevo contacto a traves de estudioluismena.com" />
                         <input type="checkbox" name="botcheck" id="" style={{ display: 'none' }} />
-                        <input type="hidden" name="redirect" value={`${domain}/contacto/success`} />
+                        <input type="hidden" name="redirect" value={`${domain}/success`} />
                         <input type="hidden" name="from_name" value="estudioluismena.com" />
                         <button className={contactStyles["contact__form-submit"]} type="submit">Enviar mensaje</button>
                     </form>
