@@ -22,6 +22,12 @@ const ContactSuccess: NextPage = (props: any) => {
     )
 }
 
+export function getServerSideProps() {
+    return {
+    };
+}
+
+
 export const getStaticProps: GetStaticProps = async () => {
     const pages = await fetchAPI(API_PATHS.pages);
     return {
