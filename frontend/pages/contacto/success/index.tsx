@@ -8,7 +8,7 @@ import contactStyles from "../contact.module.scss";
 import pageStyles from "../../../styles/page.module.scss";
 
 
-const ContactSuccess: NextPage = () => {
+const ContactSuccess: NextPage = (props: any) => {
 
     return (
         <main className={pageStyles["page__main"]}>
@@ -21,5 +21,13 @@ const ContactSuccess: NextPage = () => {
         </main>
     )
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+    const pages = await fetchAPI(API_PATHS.pages);
+    return {
+        props: { pages }
+    }
+}
+
 
 export default ContactSuccess
