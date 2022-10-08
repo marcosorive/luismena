@@ -1,25 +1,24 @@
 import type { NextPage } from 'next'
-import Image from "next/image";
+import { ReactNode } from "react";
 import { GetStaticProps } from 'next'
 import { API_PATHS } from "../../constants";
 import { fetchAPI } from "../../utils/api";
-import EmailImage from "../../resources/contact_icon1.png";
-import PhoneImage from "../../resources/contact_icon2.png";
+import { EmailIcon, PhoneIcon } from "../../components/icons";
 
 import contactStyles from "./contact.module.scss";
 import pageStyles from "../../styles/page.module.scss";
 
 interface ContactSectionProps {
-    headerImageSource: StaticImageData
+    imageComponent: ReactNode
     header: string
     content: string
 }
 
 const ConctactSection = (props: ContactSectionProps) => {
-    const { headerImageSource, header, content } = props;
+    const { imageComponent, header, content } = props;
     return (
         <div className={contactStyles["contact__information-section"]}>
-            <Image src={headerImageSource} />
+            {imageComponent}
             <h3>{header}</h3>
             <hr className={contactStyles["contact__information-inner-divider"]} />
             <h4>{content}</h4>
@@ -36,13 +35,13 @@ const Contacto: NextPage = (props: any) => {
             </section>
             <section className={contactStyles["contact__information-wrapper"]}>
                 <ConctactSection
-                    headerImageSource={EmailImage}
+                    imageComponent={<EmailIcon />}
                     header="EMAIL"
                     content="hola@estudioluismena.com"
                 />
                 <hr className={contactStyles["contact__information-divider"]} />
                 <ConctactSection
-                    headerImageSource={PhoneImage}
+                    imageComponent={<PhoneIcon />}
                     header="TELÉFONO"
                     content="609 604 003"
                 />
