@@ -1,5 +1,5 @@
 import { Image } from "../../Entities";
-import styles from "./photogallery.module.scss";
+import styles from "./image.module.scss";
 
 interface ImageProps {
     image: Image

@@ -8,7 +8,7 @@ interface SliderProps {
 
 export const ImageSlider = ({ images }: SliderProps) => {
 
-    const [selected, setSelected] = useState<number>(0);
+    const [selected, setSelected] = useState(0);
 
     const getNextImageIndex = (p: number): number => {
         if (p >= images.length - 1) return 0;

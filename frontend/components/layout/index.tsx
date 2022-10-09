@@ -20,7 +20,7 @@ export function Layout({ links, children }: LayoutProps) {
                 <meta charSet="UTF-8"></meta>
                 <meta lang="es" />
                 <title>{pageTitle}</title>
-                <meta name="description"></meta>
+                <meta name="description">Portfolio del fotografo Luis mena</meta>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" ></meta>
                 <meta name="robots" content="index, follow" />
                 <meta property="og:title" content={pageTitle} />
