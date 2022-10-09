@@ -5,10 +5,10 @@ export interface Hyperlink {
 
 interface ImageFormat {
     url: string
-    ext: string
-    name: string
-    width: number
-    height: number
+    ext?: string
+    name?: string
+    width?: number
+    height?: number
 }
 
 export interface Image {

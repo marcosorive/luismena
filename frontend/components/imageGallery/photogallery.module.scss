@@ -6,6 +6,7 @@
             justify-content: center;
         }
     }
+
     &--grid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -14,33 +15,14 @@
         justify-items: center;
         align-content: center;
         justify-content: center;
+
         @media screen and (min-width: 678px) {
             grid-template-columns: repeat(2, 1fr);
         }
+
         @media screen and (min-width: 1200px) {
             align-self: center;
             max-width: 60%;
-        }
-    }
-}
-
-.image {
-    &--wrapper {
-        width: 20em;
-        height: 20em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-    &--image {
-        width: 100%;
-        height: auto;
-        flex-shrink: 0;
-        cursor: pointer;
-        &__vertical{
-            height: 100%;
-            width: auto;
         }
     }
 }
