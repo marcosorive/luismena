@@ -1,14 +1,12 @@
-import { API_URL } from "../constants";
+import { API_PATHS } from "../constants";
+import { PAGES, HOME_PAGE } from "./content";
 
-export function getStrapiURL(path: string = ""): string {
-    return `${API_URL || "http://localhost:8082"
-        }${path}`;
+const pathContentMap: Record<string, unknown> = {
+    '/paginas': PAGES,
+    '/pagina-de-inicio': HOME_PAGE
 }
 
-export async function fetchAPI<T>(path: string): Promise<T> {
-    const requestUrl = getStrapiURL(path);
-    const response = await fetch(requestUrl);
-    const data = await response.json();
-    return data;
+export function fetchAPI(path: string): unknown {
+    return pathContentMap[path]
 }
 

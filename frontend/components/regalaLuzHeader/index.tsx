@@ -34,7 +34,7 @@ export function RegalaLuzHeader() {
                     <Button text="Reserva" />
                 </div>
                 <div className={styles["header__right"]}>
-                    <img className={styles["header__image"]} src="https://res.cloudinary.com/morive/image/upload/v1665218521/luismena/LMR_6112_cara_scaled_5d9f7b900f.jpg" alt="Imagen de lampara creada con fotos de Luis mena." />
+                    <img className={styles["header__image"]} src="https://res.cloudinary.com/morive/image/upload/v1713709877/luismena/regala_luz_5_5b3a98dd32.jpg" alt="Imagen de lampara creada con fotos de Luis mena." />
                 </div>
             </div>
             <div className={styles["feature__container"]}>

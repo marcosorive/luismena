@@ -59,8 +59,9 @@ export const getStaticProps: GetStaticProps = async (props: any) => {
 }
 
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    const pages = await fetchAPI<Array<Page>>(API_PATHS.pages);
+export const getStaticPaths: GetStaticPaths = () => {
+    const pages = fetchAPI(API_PATHS.pages);
+    // @ts-expect-error
     const paths = pages.map((p: Page) => ({ params: { slug: p.slug } }))
     return {
         paths: paths,
