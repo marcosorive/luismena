@@ -1,10 +1,9 @@
 import { Hyperlink } from "../Entities";
 import { RegalaLuzHeader } from "../components/regalaLuzHeader";
 
-export const API_URL = process.env.API_URL || 'localhost:1337';
 export const API_PATHS = {
     pages: '/paginas',
-    homePage: '/pagina-de-inicio'
+    homePage: '/pagina-de-inicio',
 }
 
 export const FIXED_LINKS: Array<Hyperlink> = [
