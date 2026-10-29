@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Gallery } from "../components/imageGallery/Gallery";
+import { RegalaLuzHeader } from "../components/regalaLuzHeader";
+import type { Page } from "../Entities";
+import { getPages } from "../utils/api";
+import pageStyles from "../styles/page.module.scss";
+
+export function getStaticPaths() {
+    return getPages().map((page) => ({
+        params: { slug: page.slug },
+        props: { page },
+    }));
+}
+
+interface Props {
+    page: Page;
+}
+
+const { page } = Astro.props;
+const isRegalaLuz = page.slug === "regala-luz";
+---
+
+<BaseLayout>
+    <main class={pageStyles["page__main"]}>
+        <section class={pageStyles["page__section-wrapper"]}>
+            <header class={pageStyles["page__title-text"]}>{page.Titulo}</header>
+        </section>
+        <section class={pageStyles["page__section-wrapper"]}>
+            <section class={pageStyles["page__section-wrapper"]}>
+                {isRegalaLuz && <RegalaLuzHeader />}
+                <p class={pageStyles["page__description"]}>{page.Descripcion}</p>
+                <Gallery images={page.Imagenes} client:visible />
+            </section>
+        </section>
+    </main>
+</BaseLayout>

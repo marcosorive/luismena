@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { EmailIcon, PhoneIcon } from "../../components/icons";
+import contactStyles from "./contact.module.scss";
+import pageStyles from "../../styles/page.module.scss";
+
+const formApiKey = import.meta.env.PUBLIC_FORM_API_KEY;
+const redirectUrl = new URL("/contacto/success", Astro.site ?? Astro.url).href;
+---
+
+<BaseLayout>
+    <main class={pageStyles["page__main"]}>
+        <section class={pageStyles["page__section-wrapper"]}>
+            <header class={pageStyles["page__title-text"]}>Contacto</header>
+        </section>
+        <section class={contactStyles["contact__information-wrapper"]}>
+            <div class={contactStyles["contact__information-section"]}>
+                <EmailIcon />
+                <h3>EMAIL</h3>
+                <hr class={contactStyles["contact__information-inner-divider"]} />
+                <h4>hola@estudioluismena.com</h4>
+            </div>
+            <hr class={contactStyles["contact__information-divider"]} />
+            <div class={contactStyles["contact__information-section"]}>
+                <PhoneIcon />
+                <h3>TELÉFONO</h3>
+                <hr class={contactStyles["contact__information-inner-divider"]} />
+                <h4>609 604 003</h4>
+            </div>
+        </section>
+        <section class={pageStyles["page__section-wrapper--margin"]}>
+            <header class={pageStyles["page__title-text--small"]}>Formulario de contacto</header>
+            <main class={contactStyles["contact__form-main"]}>
+                <form
+                    class={contactStyles["contact__form-wrapper"]}
+                    name="contact"
+                    action="https://api.web3forms.com/submit"
+                    method="POST"
+                >
+                    <div class={contactStyles["contact__form-name-fields"]}>
+                        <div class={contactStyles["contact__form-group"]}>
+                            <label class={contactStyles["contact__form-label"]} for="nombre">Nombre *</label>
+                            <input
+                                class={contactStyles["contact__form-input"]}
+                                type="text"
+                                name="nombre"
+                                id="nombre"
+                                placeholder="Chiquito de la Calzada"
+                                required
+                            />
+                        </div>
+                        <div class={contactStyles["contact__form-group"]}>
+                            <label class={contactStyles["contact__form-label"]} for="email">Email *</label>
+                            <input
+                                class={contactStyles["contact__form-input"]}
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="chiquito@calzada.com"
+                                required
+                            />
+                        </div>
+                        <div class={contactStyles["contact__form-group"]}>
+                            <label class={contactStyles["contact__form-label"]} for="telefono">Telefono *</label>
+                            <input
+                                class={contactStyles["contact__form-input"]}
+                                type="text"
+                                name="telefono"
+                                id="telefono"
+                                placeholder="600112233"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div class={contactStyles["contact__form-group"]}>
+                        <label class={contactStyles["contact__form-label"]} for="mensaje">Mensaje *</label>
+                        <textarea
+                            class={contactStyles["contact__form-input"]}
+                            name="mensaje"
+                            id="mensaje"
+                            rows="7"
+                            cols="30"
+                            required></textarea>
+                    </div>
+                    <input type="hidden" name="access_key" value={formApiKey} />
+                    <input type="hidden" name="subject" value="Nuevo contacto a traves de estudioluismena.com" />
+                    <input type="checkbox" name="botcheck" id="botcheck" style="display: none" />
+                    <input type="hidden" name="redirect" value={redirectUrl} />
+                    <input type="hidden" name="from_name" value="estudioluismena.com" />
+                    <button class={contactStyles["contact__form-submit"]} type="submit">Enviar mensaje</button>
+                </form>
+            </main>
+        </section>
+    </main>
+</BaseLayout>

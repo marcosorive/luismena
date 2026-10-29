@@ -1,21 +1,45 @@
 {
-  "name": "luismena",
-  "version": "0.0.1",
-  "description": "A monorepo for the code in estudioluismena.com",
-  "main": "index.js",
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marcosorive/luismena.git"
+  "name": "luismena-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "author": {
     "name": "Marcos Orive",
     "email": "marcos@orive.me",
     "url": "http://marcos.orive.me"
   },
-  "license": "SEE LICENSE IN LICENSE.MD",
-  "bugs": {
-    "url": "https://github.com/marcosorive/luismena/issues"
+  "dependencies": {
+    "@astrojs/react": "^6.0.6",
+    "astro": "7.3.8",
+    "fslightbox-react": "1.7.6",
+    "react": "^18.3.1",
+    "react-awesome-slider": "4.1.0",
+    "react-dom": "^18.3.1",
+    "sass": "^1.106.1"
   },
-  "homepage": "https://github.com/marcosorive/luismena#readme"
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
+    "@types/node": "^26.6.6",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^5.2.0",
+    "jsdom": "^29.1.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
 }
