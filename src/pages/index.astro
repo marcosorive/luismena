@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { ImageSlider } from "../components/imageSlider";
+import { FacebookLogo, InstagramLogo } from "../resources";
+import { getHomePage } from "../utils/api";
+import { imagesToSliderImages } from "../utils/utils";
+
+const homePage = getHomePage();
+const sliderImages = imagesToSliderImages(homePage.Imagenes);
+---
+
+<BaseLayout>
+    <div>
+        <ImageSlider images={sliderImages} client:load />
+        <footer>
+            <section>© 2019 — LUIS MENA REGUEIRA</section>
+            <section class="footer__logos">
+                <InstagramLogo />
+                <FacebookLogo />
+            </section>
+        </footer>
+    </div>
+</BaseLayout>

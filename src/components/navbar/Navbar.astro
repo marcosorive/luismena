@@ -1,0 +1,100 @@
+---
+import type { Hyperlink } from "../../Entities";
+import styles from "./Navbar.module.scss";
+
+interface Props {
+    links: Array<Hyperlink>;
+}
+
+const { links } = Astro.props;
+
+const normalizePath = (path: string): string => path.replace(/\/+$/, "") || "/";
+const currentPath = normalizePath(Astro.url.pathname);
+const isActive = (link: string): boolean => normalizePath(link) === currentPath;
+---
+
+<nav class={styles["nav-container"]} data-navbar>
+    <button
+        class={styles["nav-hamburguer-icon"]}
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-navigation"
+        data-menu-toggle
+    >
+        ☰
+    </button>
+    <div class={styles["nav-links"]}>
+        {links.map((node) => (
+            <a
+                href={node.link}
+                class={isActive(node.link) ? styles["active-link"] : undefined}
+                aria-current={isActive(node.link) ? "page" : undefined}
+            >
+                {node.text}
+            </a>
+        ))}
+    </div>
+    <div
+        id="mobile-navigation"
+        class={styles["overlay-container-hidden"]}
+        data-overlay
+        data-hidden-class={styles["overlay-container-hidden"]}
+        data-show-class={styles["overlay-container-show"]}
+    >
+        <div>
+            <button
+                class={styles["overlay-buttonClose"]}
+                type="button"
+                aria-label="Cerrar menú"
+                data-menu-close
+            >
+                <span>&times;</span>
+            </button>
+            <div class={styles["overlay-menu-wrapper"]}>
+                <div class={styles["overlay-menu"]}>
+                    {links.map((node) => (
+                        <a
+                            href={node.link}
+                            class={`${styles["overlay-menu-item"]}${isActive(node.link) ? ` ${styles["overlay-active-link"]}` : ""}`}
+                            aria-current={isActive(node.link) ? "page" : undefined}
+                            data-menu-link
+                        >
+                            {node.text}
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    document.querySelectorAll<HTMLElement>("[data-navbar]").forEach((navbar) => {
+        const toggle = navbar.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+        const close = navbar.querySelector<HTMLButtonElement>("[data-menu-close]");
+        const overlay = navbar.querySelector<HTMLElement>("[data-overlay]");
+        const links = navbar.querySelectorAll<HTMLAnchorElement>("[data-menu-link]");
+
+        if (!toggle || !close || !overlay) return;
+
+        const hiddenClass = overlay.dataset.hiddenClass;
+        const showClass = overlay.dataset.showClass;
+
+        if (!hiddenClass || !showClass) return;
+
+        const setOpen = (open: boolean): void => {
+            overlay.classList.toggle(showClass, open);
+            overlay.classList.toggle(hiddenClass, !open);
+            toggle.setAttribute("aria-expanded", String(open));
+            document.body.style.overflow = open ? "hidden" : "";
+        };
+
+        toggle.addEventListener("click", () => {
+            setOpen(overlay.classList.contains(hiddenClass));
+        });
+
+        close.addEventListener("click", () => setOpen(false));
+        links.forEach((link) => link.addEventListener("click", () => setOpen(false)));
+    });
+</script>

@@ -1,0 +1,43 @@
+---
+import { FIXED_LINKS } from "../constants";
+import { getPages } from "../utils/api";
+import Navbar from "../components/navbar/Navbar.astro";
+import "../styles/globals.css";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const { title, description = "Portfolio del fotografo Luis mena" } = Astro.props;
+
+const normalizePath = (path: string): string => path.replace(/\/+$/, "") || "/";
+const currentPath = normalizePath(Astro.url.pathname);
+const navLinks = [
+    ...FIXED_LINKS,
+    ...getPages().map((page) => ({ text: page.Titulo, link: `/${page.slug}` })),
+];
+const currentPage = navLinks.find((link) => normalizePath(link.link) === currentPath);
+const pageTitle = title ?? (currentPage ? `${currentPage.text} - Estudio Luis Mena` : "Estudio Luis Mena");
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL.href} />
+        <meta property="og:image" content="" />
+        <link rel="canonical" href={canonicalURL.href} />
+        <title>{pageTitle}</title>
+    </head>
+    <body>
+        <Navbar links={navLinks} />
+        <slot />
+    </body>
+</html>

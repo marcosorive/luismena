@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import contactStyles from "./contact.module.scss";
+import pageStyles from "../../styles/page.module.scss";
+---
+
+<BaseLayout>
+    <main class={pageStyles["page__main"]}>
+        <section class={pageStyles["page__section-wrapper"]}>
+            <header class={pageStyles["page__title-text"]}>Contacto</header>
+        </section>
+        <section class={contactStyles["contact__information-wrapper"]}>
+            <p class={pageStyles["page__title-text--small"]}>
+                Muchas gracias por tu mensaje, ha sido enviado correctamente. Me pondre en contacto contigo lo antes
+                posible.
+            </p>
+        </section>
+    </main>
+</BaseLayout>
